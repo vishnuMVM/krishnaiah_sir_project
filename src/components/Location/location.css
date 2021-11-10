@@ -8,6 +8,7 @@
 }
 
 
+
 .map-text-container{
     display:flex;
     padding: 12px;
@@ -111,7 +112,11 @@ padding: 12px 0 40px 0;
     
     }
     .map-text-container h1{
-        font-size: 28px;
+        font-size: 25px;
+    }
+
+    .map-text-container h2{
+        font-size: 20px;
     }
 
     .contact-container{
@@ -150,7 +155,7 @@ padding: 12px 0 40px 0;
     }
     .htr-main-container h1{
         color:#9b1313;
-        font-size: 28px;
+        font-size: 25px;
     }
     
     
