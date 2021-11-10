@@ -1,0 +1,36 @@
+.temple-header{
+    color:#9b1313;
+   text-align: center;
+
+}
+@media screen and (max-width:767px) {
+
+   .temple-header{
+    color:#9b1313;
+   text-align: center;
+   font-size: 25px;
+
+} 
+}
+
+
+
+.evetns-main-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:10px 0;
+    margin: auto;
+    padding:10px;
+    flex-wrap: wrap;
+    width:80%;
+    height: fit-content;
+}
+
+.evetns-main-container h3{
+color:#9b1313;
+}
+
+.evetns-main-container p{
+    font-size: 18px;
+}

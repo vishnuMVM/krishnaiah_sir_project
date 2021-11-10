@@ -43,7 +43,7 @@ const Footer=()=>{
                 </div>
 
                 <div className="footer-each-container">
-                    <h5>Designed & Developed by Lovistudio</h5>
+                    <h5>Designed & Developed by LokmaStudio</h5>
                 </div>
             </div>
             </div>

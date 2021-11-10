@@ -1,28 +1,50 @@
 
-
 import Header from "./components/Header/header.js";
 import RegisterLogin from "./components/Login/Register-Login.js";
 import {BrowserRouter,Switch,Route} from "react-router-dom";
 import Temple from "./components/Temple/temple.js";
-import Contact from "./components/Contact/contact.js";
+import Location from "./components/Location/location.js";
 import Footer from "./components/Footer/footer.js";
+import Management from "./components/Management/management.js";
+import {Component} from "react";
+import LanguageContext from "./components/languagecontext.js";
 
 
-const App=()=> {
+class App extends Component {
+state={activelanguage:"English"}
+
+changelanguage=(activelanguage)=>{
+  this.setState({activelanguage,})
+}
+
+  render(){
+    const {activelanguage}=this.state
   return (
 
 <BrowserRouter>
+
+<LanguageContext.Provider 
+  value={
+    {
+      activelanguage,
+      changelanguage:this.changelanguage,
+    }
+  }>
+
   <Header />
   <Switch>
     <Route exact path="/" component={Temple} /> 
     <Route exact path="/admin" component={RegisterLogin} />
-    <Route exact path="/contact" component={Contact} />
-    <Route exact path="/contact" component={Contact} />
+    <Route exact path="/location" component={Location} />
+    <Route exact path="/management" component={Management} />
   </Switch>
   <Footer />
+  </LanguageContext.Provider>
 </BrowserRouter>
 
   )
   }
+}
+
 
 export default App;

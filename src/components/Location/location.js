@@ -1,8 +1,8 @@
-import "./contact.css"
+import "./location.css"
 
 
 
-const Contact=()=>{
+const Location=()=>{
     return(
         <div>
             <div className="contact-whole-container">
@@ -73,4 +73,4 @@ const Contact=()=>{
 
 
 
-export default Contact;
+export default Location;

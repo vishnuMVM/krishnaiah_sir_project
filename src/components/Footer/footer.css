@@ -7,6 +7,7 @@
     background-color: #453939;
     box-sizing: border-box;
     height: fit-content;
+    margin-top:30px;
 }
 .footer-main-dev-contianer{
     display: flex;
