@@ -33,10 +33,10 @@ changelanguage=(activelanguage)=>{
 
   <Header />
   <Routes>
-    <Route exact path="/" component={Temple} /> 
-    <Route exact path="/admin" component={RegisterLogin} />
-    <Route exact path="/location" component={Location} />
-    <Route exact path="/management" component={Management} />
+    <Route  exact path="/" element={<Temple />} /> 
+    <Route exact path="/admin" element={<RegisterLogin />} />
+    <Route exact path="/location" element={<Location />} />
+    <Route exact path="/management" element={<Management />} />
   </Routes>
   <Footer />
   </LanguageContext.Provider>

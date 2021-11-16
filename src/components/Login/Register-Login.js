@@ -1,101 +1,60 @@
-import { useState } from "react";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-} from "firebase/auth";
-import "./Register-Login.css";
-import { auth } from "./firebase-config";
+import React,{ useRef, useState } from "react";
 
+import { signup, login, logout, useAuth } from "../../firebase/config";
 
-const RegisterLogin = () => {
+export default function AdminLogin() {
+  const [ loading, setLoading ] = useState(false);
+  const currentUser = useAuth();
 
-  const [registerEmail, setRegisterEmail] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
+  const emailRef = useRef();
+  const passwordRef = useRef();
 
-  const [user, setUser] = useState({});
+  async function handleSignup() {
+    setLoading(true);
+    // try {
+      await signup(emailRef.current.value, passwordRef.current.value);
+    // } catch {
+      // alert("Error!");
+    // }
+    setLoading(false);
+  }
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
-
-  const register = async () => {
+  async function handleLogin() {
+    setLoading(true);
     try {
-      const user = await createUserWithEmailAndPassword(
-        auth,
-        registerEmail,
-        registerPassword
-      );
-      console.log(user);
-    } catch (error) {
-      console.log(error.message);
+      await login(emailRef.current.value, passwordRef.current.value);
+    } catch {
+      alert("Error!");
     }
-  };
+    setLoading(false);
+  }
 
-  const login = async () => {
+  async function handleLogout() {
+    setLoading(true);
     try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        loginEmail,
-        loginPassword
-      );
-      console.log(user);
-    } catch (error) {
-      console.log(error.message);
+      await logout();
+    } catch {
+      alert("Error!");
     }
-  };
-
-  const logout = async () => {
-    await signOut(auth);
-  };
+    setLoading(false);
+    emailRef.current.value=""
+    passwordRef.current.value=""
+  }
 
   return (
-    <div className="App">
-      <div>
-        <h3> Register User </h3>
-        <input
-          placeholder="Email..."
-          onChange={(event) => {
-            setRegisterEmail(event.target.value);
-          }}
-        />
-        <input
-          placeholder="Password..."
-          onChange={(event) => {
-            setRegisterPassword(event.target.value);
-          }}
-        />
+    <div id="main">
+      
+      <div>Currently logged in as: { currentUser?.email } </div>
 
-        <button onClick={register}> Create User</button>
+      <div id="fields">
+        <input ref={emailRef} placeholder="Email" />
+        <input ref={passwordRef} type="password" placeholder="Password" />
       </div>
 
-      <div>
-        <h3> Login </h3>
-        <input
-          placeholder="Email..."
-          onChange={(event) => {
-            setLoginEmail(event.target.value);
-          }}
-        />
-        <input
-          placeholder="Password..."
-          onChange={(event) => {
-            setLoginPassword(event.target.value);
-          }}
-        />
+      <button disabled={ loading || currentUser } onClick={handleSignup}>Sign Up</button>
+      <button disabled={ loading || currentUser } onClick={handleLogin}>Log In</button>
+      <button disabled={ loading || !currentUser } onClick={handleLogout}>Log Out</button>
 
-        <button onClick={login}> Login</button>
-      </div>
-
-      <h4> User Logged In: </h4>
-      {user?.email}
-
-      <button onClick={logout}> Sign Out </button>
     </div>
   );
 }
-
-export default RegisterLogin;
