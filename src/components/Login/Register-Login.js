@@ -1,4 +1,5 @@
 import React,{ useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 import { signup, login, logout, useAuth } from "../../firebase/config";
 
@@ -41,7 +42,7 @@ export default function AdminLogin() {
     passwordRef.current.value=""
   }
 
-  return (
+  return (<>
     <div id="main">
       
       <div>Currently logged in as: { currentUser?.email } </div>
@@ -56,5 +57,11 @@ export default function AdminLogin() {
       <button disabled={ loading || !currentUser } onClick={handleLogout}>Log Out</button>
 
     </div>
+    <div>
+      {currentUser && <Link to = "/update-gallery">Update Gallery Or Vidoes</Link>}
+
+    </div>
+
+    </>
   );
 }

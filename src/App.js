@@ -8,6 +8,9 @@ import Footer from "./components/Footer/footer.js";
 import Management from "./components/Management/management.js";
 import {Component} from "react";
 import LanguageContext from "./components/languagecontext.js";
+import GalleryPage from './components/Gallery/GalleryPage';
+import UpdateImagesAndVideos from './components/UpdateImagesAndVideos';
+import Videos from './components/Videos';
 
 
 class App extends Component {
@@ -36,7 +39,11 @@ changelanguage=(activelanguage)=>{
     <Route  exact path="/" element={<Temple />} /> 
     <Route exact path="/admin" element={<RegisterLogin />} />
     <Route exact path="/location" element={<Location />} />
+    <Route exact path="/gallery" element={<GalleryPage />} />
     <Route exact path="/management" element={<Management />} />
+    <Route exact path="/update-gallery" element={<UpdateImagesAndVideos />} />
+    <Route exact path="/videos" element={<Videos />} />
+    
   </Routes>
   <Footer />
   </LanguageContext.Provider>
