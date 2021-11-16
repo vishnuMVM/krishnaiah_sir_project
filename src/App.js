@@ -1,7 +1,7 @@
 
 import Header from "./components/Header/header.js";
 import RegisterLogin from "./components/Login/Register-Login.js";
-import {BrowserRouter,Switch,Route} from "react-router-dom";
+import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Temple from "./components/Temple/temple.js";
 import Location from "./components/Location/location.js";
 import Footer from "./components/Footer/footer.js";
@@ -32,12 +32,12 @@ changelanguage=(activelanguage)=>{
   }>
 
   <Header />
-  <Switch>
+  <Routes>
     <Route exact path="/" component={Temple} /> 
     <Route exact path="/admin" component={RegisterLogin} />
     <Route exact path="/location" component={Location} />
     <Route exact path="/management" component={Management} />
-  </Switch>
+  </Routes>
   <Footer />
   </LanguageContext.Provider>
 </BrowserRouter>

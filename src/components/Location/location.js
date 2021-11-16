@@ -1,5 +1,6 @@
 import "./location.css"
 import LanguageContext from "../languagecontext.js";
+import MapView from "../MapView/MapView";
 
 const locationmater={
     English:{
@@ -68,7 +69,7 @@ return(
                             <div className="map-main-container">
                                 <div className="map-container">
         
-                                     MAP OCMES OVER HERE
+                                     <MapView />
         
                                 </div>
                             </div>
