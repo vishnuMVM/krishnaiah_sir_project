@@ -113,6 +113,22 @@ label:hover{
   border: 3px solid white;
 }
 
+.modal-delete {
+  /* position: relative;
+  margin-left: 20px; */
+
+}
+.modal-div{
+  display: flex;
+  /* flex-direction: column; */
+}
+
+.delete-btn{
+  /* float: right; */
+  
+  /* margin: 0 auto; */
+
+}
  /* Upload Images Button Div styles  */
  .upload-image-div{
    display: flex;
@@ -148,27 +164,7 @@ label:hover{
 }
 
  /* ****** Image Grid *****  */
-
- .each-event-container{
-  background-color: #fdf7e1;
-  padding:10px;
-  height:280px;
-  width:250px;
-  margin:10px;
-}
-
-.event-image-container{
-  height:175;
-  width:100%;
-  box-sizing: border-box;
  
-}
-.event-image{
-  height:100%;
-  width:100%;
-  border-radius: 10px;
-  box-sizing: border-box;
-}
 .grid-view{
   display: grid;
   grid-template-rows: 1fr 1fr;

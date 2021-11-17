@@ -41,7 +41,7 @@ const UploadImage = () => {
             URL: downloadURL,
             createdAt: timestamp,
           });
-          console.log(progress);
+          // console.log(progress);
           // addDocWithID()
         });
       },

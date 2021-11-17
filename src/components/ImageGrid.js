@@ -66,11 +66,20 @@ export default function ImageGrid({ setSelectedImg }) {
 
   return (
     <>
+     <div style={{display:"grid"}}>
     {currentUser && <div style={{padding:"20px"}}>
     <Link to= "/update-gallery">
        <button className = "btn"><i class="fas fa-arrow-left"></i> Update Gallery </button>
     </Link>
     </div>}
+
+    {<div className = "fields" style = {{ position:"relative", float:"right",padding:"20px", marginLeft: "auto" , marginRight: 0}}>
+        <Link to="/videos">
+          <button className="logout-btn"> <i class="far fa-eye"></i>  View Videos </button>
+        </Link>
+      </div>}
+        
+      </div>
       <div className="img-grid">
         {documents &&
           documents.map((doc) => (
@@ -89,17 +98,17 @@ export default function ImageGrid({ setSelectedImg }) {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1 }}
                   onClick={() => {
-                    setSelectedImg(doc.URL);
+                    setSelectedImg(doc);
                   }}
                 />
 
-                <div>
+                {/* <div>
                   {currentUser && (
                     <button
                       style={{
                         position: "relative",
                         zIndex: 1,
-                        marginTop: "100px",
+                        marginTop: "400px",
                         width: "300px",
                         height: "50px",
                       }}
@@ -110,7 +119,7 @@ export default function ImageGrid({ setSelectedImg }) {
                       delete
                     </button>
                   )}
-                </div>
+                </div> */}
               </motion.div>
             </>
           ))}

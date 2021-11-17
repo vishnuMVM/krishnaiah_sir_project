@@ -37,7 +37,7 @@ changelanguage=(activelanguage)=>{
   }>
   <Header /> 
   <Routes>
-    <Route  exact path="/" element={<Temple />} /> 
+    <Route exact path="/" element={<Temple />} /> 
     <Route exact path="/admin" element={<AdminLogin />} />
     <Route exact path="/location" element={<Location />} />
     <Route exact path="/gallery" element={<GalleryPage />} />
