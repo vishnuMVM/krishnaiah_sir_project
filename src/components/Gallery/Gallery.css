@@ -169,3 +169,7 @@ label:hover{
   border-radius: 10px;
   box-sizing: border-box;
 }
+.grid-view{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}

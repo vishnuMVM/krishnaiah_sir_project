@@ -11,7 +11,7 @@ import LanguageContext from "./components/languagecontext.js";
 import GalleryPage from './components/Gallery/GalleryPage';
 import UpdateImagesAndVideos from './components/UpdateImagesAndVideos';
 import Videos from './components/Videos';
-import Login from './components/Login/Login';
+
 
 
 

@@ -101,7 +101,7 @@ export default function AdminLogin() { const [loading, setLoading] = useState(fa
         Log Out
       </button> */}
 
-      <div style = {{ position:"relative", float:"right", marginLeft: "auto" , marginRight: 0}}>
+      <div style = {{ position:"relative", float:"right", marginLeft: "auto" , marginRight: 0,padding:"20px"}}>
         {currentUser && (
           <Link to="/update-gallery">
          <button className = "btn"> <i class="fas fa-arrow-right"></i>  Update Gallery </button>
