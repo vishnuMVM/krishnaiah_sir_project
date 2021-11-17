@@ -66,10 +66,11 @@ export default function ImageGrid({ setSelectedImg }) {
 
   return (
     <>
+    <div style={{padding:"20px"}}>
     <Link to= "/update-gallery">
        <button className = "btn"><i class="fas fa-arrow-left"></i> Update Gallery </button>
     </Link>
-   
+    </div>
       <div className="img-grid">
         {documents &&
           documents.map((doc) => (
