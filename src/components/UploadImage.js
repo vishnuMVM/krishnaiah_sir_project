@@ -5,11 +5,13 @@ import { collection, addDoc } from "firebase/firestore";
 import { motion } from "framer-motion";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useAuth } from "../firebase/config";
 
 import Title from "./Title";
 import { Link } from "react-router-dom";
 
 const UploadImage = () => {
+  const currentUser = useAuth();
   const [file, setFile] = useState([]);
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -22,6 +24,7 @@ const UploadImage = () => {
   const uploadTask = uploadBytesResumable(storageRef, file);
 
   const handleUpload = async () => {
+    if (!file) return;
     // setLoading(true);
     uploadTask.on(
       "state_changed",
@@ -62,10 +65,6 @@ const UploadImage = () => {
     // return () => clearTimeout(refreshPage);
   };
 
-  function refreshPage() {
-    window.location.reload(true);
-  }
-
   const handleChange = async (e) => {
     let selected = e.target.files[0];
     setFile(e.target.files[0]);
@@ -84,17 +83,39 @@ const UploadImage = () => {
       <div>
         <label>
           <input type="file" onChange={handleChange} accept="image/*" />
-          <span>  + </span>
+          <span> + choose your file....</span>
         </label>
 
-
-        <div className = "upload-image-div" style={{ display: "flex",
-   justifyContent: "spaceAround"}}>
-          <button disabled={loading ? true : false} onClick={handleUpload}>
+        <div className="upload-image-div">
+          <button
+            className="btn"
+            disabled={loading ? true : false}
+            onClick={handleUpload}
+          >
+            {" "}
+            <i class="fas fa-upload"></i>
             Upload Image
           </button>
-          <Link to ='/gallery'> View Gallery </Link>
-          </div>
+        </div>
+      </div>
+
+      <div
+        className="upload-image-div"
+        // style={{
+        //   position: "relative",
+        //   float: "right",
+        //   padding: "20px",
+        //   marginLeft: "auto",
+        //   marginRight: 0,
+        // }}
+      >
+        {currentUser && (
+          <Link to="/gallery">
+            <button className="logout-btn">
+              <i class="far fa-eye"></i> View Gallery
+            </button>
+          </Link>
+        )}
       </div>
 
       <div className="output">

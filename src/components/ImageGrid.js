@@ -67,7 +67,7 @@ export default function ImageGrid({ setSelectedImg }) {
   return (
     <>
     <Link to= "/update-gallery">
-       <button>Update Gallery </button>
+       <button className = "btn"><i class="fas fa-arrow-left"></i> Update Gallery </button>
     </Link>
    
       <div className="img-grid">
@@ -81,6 +81,7 @@ export default function ImageGrid({ setSelectedImg }) {
                 whileHover={{ opacity: 1 }}
               >
                 <motion.img
+                // className="event-image"
                   src={doc.URL}
                   alt="uploaded pic"
                   initial={{ opacity: 0 }}

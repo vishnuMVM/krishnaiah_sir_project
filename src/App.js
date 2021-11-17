@@ -1,6 +1,6 @@
 
 import Header from "./components/Header/header.js";
-import RegisterLogin from "./components/Login/Register-Login.js";
+import AdminLogin from "./components/Login/AdminLogin.js";
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Temple from "./components/Temple/temple.js";
 import Location from "./components/Location/location.js";
@@ -11,6 +11,8 @@ import LanguageContext from "./components/languagecontext.js";
 import GalleryPage from './components/Gallery/GalleryPage';
 import UpdateImagesAndVideos from './components/UpdateImagesAndVideos';
 import Videos from './components/Videos';
+import Login from './components/Login/Login';
+
 
 
 class App extends Component {
@@ -33,11 +35,10 @@ changelanguage=(activelanguage)=>{
       changelanguage:this.changelanguage,
     }
   }>
-
-  <Header />
+  <Header /> 
   <Routes>
     <Route  exact path="/" element={<Temple />} /> 
-    <Route exact path="/admin" element={<RegisterLogin />} />
+    <Route exact path="/admin" element={<AdminLogin />} />
     <Route exact path="/location" element={<Location />} />
     <Route exact path="/gallery" element={<GalleryPage />} />
     <Route exact path="/management" element={<Management />} />

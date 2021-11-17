@@ -72,21 +72,31 @@ export default function UpdateVideos() {
 
   return (
     <div>
-      <div className="title">
+      <div className="title ">
         <h2>Update your videos here...</h2>
       </div>
 
-      <form>
-        <input type="text" onChange={handleChange}></input>
-        <button type="submit" onClick={handleSubmit}>
-          Update Link Here{" "}
-        </button>
-
-        <Link to="/videos">
-          <button>View Videos </button>
-        </Link>
-      </form>
+      <div className="update-Video">
+        <div className="fields">
+          <input
+            placeholder="Paste Video Link here"
+            className="inputField"
+            type="text"
+            onChange={handleChange}
+          ></input>
+        </div>
+        <div className="fields">
+          <button className="btn" type="submit" onClick={handleSubmit}>
+            Update Link Here{" "}
+          </button>
+        </div>
+      </div>
       <ToastContainer />
+      <div className = "fields" style = {{ position:"relative", float:"right",padding:"20px", marginLeft: "auto" , marginRight: 0}}>
+        <Link to="/videos">
+          <button className="logout-btn"> <i class="far fa-eye"></i>  View Videos </button>
+        </Link>
+      </div>
     </div>
   );
 }
