@@ -164,8 +164,13 @@ label:hover{
 }
 
  /* ****** Image Grid *****  */
- 
+
 .grid-view{
   display: grid;
   grid-template-rows: 1fr 1fr;
+}
+.center {
+
+  display: flex;
+  justify-content: center;
 }

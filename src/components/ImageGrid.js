@@ -12,10 +12,13 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAuth } from "../firebase/config";
 import { Link } from "react-router-dom";
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 export default function ImageGrid({ setSelectedImg }) {
   const [documents, setDocuments] = useState([]);
   const currentUser = useAuth();
+  var [loading,setLoading] =useState(true)
 
   useEffect(() => {
     const unsub = getData();
@@ -32,11 +35,13 @@ export default function ImageGrid({ setSelectedImg }) {
           docs.push({ ...doc.data(), id: doc.id });
         });
         setDocuments(docs);
+        setLoading(false)
       })
       .catch((err) => {
         console.log(err.message);
       });
     return { documents };
+
   };
 
   const handleDelete = async (id, name) => {
@@ -78,8 +83,12 @@ export default function ImageGrid({ setSelectedImg }) {
           <button className="logout-btn"> <i class="far fa-eye"></i>  View Videos </button>
         </Link>
       </div>}
+
+
         
       </div>
+      
+      {loading?<Loader className="center" type="TailSpin" color="#00Bfff" height={50} width={50} /> :
       <div className="img-grid">
         {documents &&
           documents.map((doc) => (
@@ -123,7 +132,7 @@ export default function ImageGrid({ setSelectedImg }) {
               </motion.div>
             </>
           ))}
-      </div>
+      </div>}
       <ToastContainer />
     </>
   );
