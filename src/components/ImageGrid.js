@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./imagegrid.css";
 import {
   doc,
   getFirestore,
@@ -87,8 +88,11 @@ export default function ImageGrid({ setSelectedImg }) {
 
         
       </div>
+
       
-      {loading?<Loader className="center" type="TailSpin" color="#00Bfff" height={50} width={50} /> :
+      {loading?(<div className="spinner-location"> <Loader  type="TailSpin" color="#00Bfff" height={50} width={50} /> </div> ):
+      
+      
       <div className="img-grid">
         {documents &&
           documents.map((doc) => (

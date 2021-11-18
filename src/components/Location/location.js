@@ -67,11 +67,9 @@ return(
                             </div>
         
                             <div className="map-main-container">
-                                <div className="map-container">
-        
-                                     <MapView />
-        
-                                </div>
+                                
+                                <MapView />
+
                             </div>
         
                         </div>
