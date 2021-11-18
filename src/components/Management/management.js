@@ -1,6 +1,7 @@
 import "./management.css";
 import trustee from "./trustee.jpg";
 import priest from "./priest.jpg";
+import executive from "./executive.jpg"
 import CommitteeMembers from "../CommitteeMembers/committeemembers";
 import LanguageContext from "../languagecontext";
 
@@ -84,7 +85,7 @@ return(
                     </div>
 
                     <div className="management-individual-text-container">
-                        <h2>{activelanguage==="English"?"A.MuduKrishnaiah":"ఎ.ముదుకృష్ణయ్య"}</h2>
+                        <h2>{activelanguage==="English"?"A.MuduKrishnaiah":"ఎ.ముద్దుకృష్ణయ్య"}</h2>
                         <p>{activelanguage==="English"?"Trustee":"ధర్మకర్త"}</p>
                         <h3>9849835844</h3>
                     </div>
@@ -93,7 +94,7 @@ return(
 
                 <div className="management-individual-container">
                     <div className="mng-image-container">
-                    <img src={trustee} alt="trustee" className="management-image"/>
+                    <img src={executive} alt="executive" className="management-image"/>
                     </div>
 
                     <div className="management-individual-text-container">
