@@ -53,6 +53,7 @@ export default function PostUpdatesDiv() {
 
   return (
     <div className="updates">
+      <h1 className="center"> Post Latest Updates Here....</h1>
       <div className="center">
         <textarea
           ref={EnglishTextRef}

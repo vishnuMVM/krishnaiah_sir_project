@@ -52,11 +52,11 @@ export default function Videos() {
   };
 
   return (<>
-  <div style = {{padding:"20px"}}>
+  {currentUser &&  <div style = {{padding:"20px"}}>
     <Link to= "/update-gallery">
        <button className = "btn" ><i class="fas fa-arrow-left"></i> Update Videos </button>
     </Link>
-    </div>
+    </div> }
 
     {loading?(<div className="spinner-location"> <Loader  type="TailSpin" color="#00Bfff" height={50} width={50} /> </div> ):
     <div className="videos-div">

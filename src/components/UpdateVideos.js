@@ -98,7 +98,7 @@ inputRef.current.value=""
         </div>
       </div>
       <ToastContainer />
-      <div className = "fields" style = {{ position:"relative", float:"right",padding:"20px", marginLeft: "auto" , marginRight: 0}}>
+      <div className = "fields center" style = {{ position:"relative", padding:"20px", marginLeft: "auto" , marginRight: 0}}>
         <Link to="/videos">
           <button className="logout-btn"> <i class="far fa-eye"></i>  View Videos </button>
         </Link>
