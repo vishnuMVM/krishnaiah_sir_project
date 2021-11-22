@@ -15,7 +15,11 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function LatestUpdatesDiv() {
+
+
+export default function LatestUpdatesDiv(props) {
+
+  const {language}=props;
   const [updates,setUpdates] = useState([])
 
   useEffect(()=>{
@@ -57,12 +61,25 @@ export default function LatestUpdatesDiv() {
  
   };
 
-  return <div>
-{updates.map((doc)=>{
-  return <div className="updates-div">
-   <h5>{doc.tel}</h5>
-   <button className="logout-btn" onClick={()=>{handleDelete(doc.id)}}><i class="fas fa-trash"></i> delete</button>
-   </div>
-})}
-  </div>;
+
+
+    return (
+
+        <div> 
+            {updates.map((doc)=>{
+              return
+                (<div className="updates-div">
+                    {language==="English"?(<h5>{doc.eng}</h5>):(<h5>{doc.tel}</h5>)};
+                    <button className="logout-btn" onClick={()=>{handleDelete(doc.id)}}><i class="fas fa-trash"></i> delete</button>;
+                </div>)
+            })}
+        </div>
+
+    );
+
+      
+
+
+
+
 }
