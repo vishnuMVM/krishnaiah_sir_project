@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
 import { db } from "../firebase/config";
 import ytCodeParser from "@joachimdalen/youtube-url-to-code";
@@ -11,6 +11,8 @@ import { Link } from "react-router-dom";
 export default function UpdateVideos() {
   const [inputVideoUrl, setInputVideoUrl] = useState("");
   const [videoID, setvideoID] = useState("");
+    var [isBtnDisabled,setBtnDisabled] = useState(true);
+    const inputRef = useRef()
 
   const URLCollection = collection(db, "AllVideoURLs");
   const [videoTitle, setVideoTitle] = useState("");
@@ -25,9 +27,8 @@ export default function UpdateVideos() {
       const addedDoc = await addDoc(URLCollection, {
         url: videoID,
         fullVideoUrl: inputVideoUrl,
-        // ID: uuid(),
-        CreatedAt: timestamp,
-        videoName: videoTitle,
+        createdAt: timestamp,
+        videoName: videoTitle
       });
     }
   };
@@ -36,10 +37,12 @@ export default function UpdateVideos() {
     addVideoLink();
   }, [videoID, videoTitle]);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     console.log(e, "event");
     e.preventDefault();
-    getVideoIDs();
+   await getVideoIDs();
+setBtnDisabled(true)
+inputRef.current.value=""
   }
 
   const getVideoIDs = () => {
@@ -66,8 +69,10 @@ export default function UpdateVideos() {
     //   return () => clearTimeout(refreshPage);
   };
 
-  const handleChange = (e) => {
-    setInputVideoUrl(e.target.value);
+  const handleChange = async (e) => {
+    
+   await setInputVideoUrl(e.target.value)
+    setBtnDisabled(false);
   };
 
   return (
@@ -79,6 +84,7 @@ export default function UpdateVideos() {
       <div className="update-Video">
         <div className="fields">
           <input
+          ref={inputRef}
             placeholder="Paste Video Link here"
             className="inputField"
             type="text"
@@ -86,8 +92,8 @@ export default function UpdateVideos() {
           ></input>
         </div>
         <div className="fields">
-          <button className="btn" type="submit" onClick={handleSubmit}>
-            Update Link Here{" "}
+          <button className="btn" disabled={isBtnDisabled ? true : false} type="submit" onClick={handleSubmit}>
+            Update Link Here
           </button>
         </div>
       </div>

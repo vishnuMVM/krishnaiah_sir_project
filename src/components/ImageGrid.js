@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import "./imagegrid.css";
 import {
   doc,
   getFirestore,
   collection,
   getDocs,
   deleteDoc,
+  orderBy,
+  query
 } from "firebase/firestore";
 import { motion } from "framer-motion";
 import { getStorage, ref, deleteObject } from "firebase/storage";
@@ -29,7 +30,8 @@ export default function ImageGrid({ setSelectedImg }) {
   const getData = async () => {
     const db = getFirestore();
     const colRef = collection(db, "pics");
-    getDocs(colRef)
+    const q = query(colRef,orderBy("createdAt","desc"))
+    getDocs(q)
       .then((snapshot) => {
         let docs = [];
         snapshot.docs.forEach((doc) => {
@@ -45,41 +47,44 @@ export default function ImageGrid({ setSelectedImg }) {
 
   };
 
-  const handleDelete = async (id, name) => {
-    const db = getFirestore();
-    const storage = getStorage();
-    const imageRef = doc(db, "pics", id);
-    const objectRef = ref(storage, `files/${name}`);
+  // const handleDelete = async (id, name) => {
+  //   const db = getFirestore();
+  //   const storage = getStorage();
+  //   const imageRef = doc(db, "pics", id);
+  //   const objectRef = ref(storage, `files/${name}`);
 
-    await deleteDoc(imageRef);
-    await deleteObject(objectRef);
+  //   await deleteDoc(imageRef);
+  //   await deleteObject(objectRef);
 
-    toast.error("Image is getting Deleted", {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-    const refreshPage = setTimeout(() => {
-      window.location.reload(false);
-      console.log("This will run after 5 second!");
-    }, 1000);
-    return () => clearTimeout(refreshPage);
-  };
+  //   toast.error("Image is getting Deleted", {
+  //     position: "top-right",
+  //     autoClose: 2000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //   });
+  //   const refreshPage = setTimeout(() => {
+  //     window.location.reload(false);
+  //     console.log("This will run after 5 second!");
+  //   }, 1000);
+  //   return () => clearTimeout(refreshPage);
+  // };
 
   return (
     <>
-     <div style={{display:"grid"}}>
-    {currentUser && <div style={{padding:"20px"}}>
+    {/* style={{display:"grid"}} */}
+     <div className = "grid-btn-div">
+     {/* style={{padding:"20px"}} */}
+    {currentUser && <div >
     <Link to= "/update-gallery">
        <button className = "btn"><i class="fas fa-arrow-left"></i> Update Gallery </button>
     </Link>
     </div>}
-
-    {<div className = "fields" style = {{ position:"relative", float:"right",padding:"20px", marginLeft: "auto" , marginRight: 0}}>
+    {/* float:"right", */}
+    {/* style = {{ position:"relative", padding:"20px", marginLeft: "auto" , marginRight: 0}} */}
+    {<div className = "fields" >
         <Link to="/videos">
           <button className="logout-btn"> <i class="far fa-eye"></i>  View Videos </button>
         </Link>

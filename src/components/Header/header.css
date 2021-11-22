@@ -154,6 +154,7 @@ align-items: center;
         width:200px;
         background-color: rgb(245, 219, 186);
         transition:800ms ease-in-out;
+        z-index: 1;
         
        
     }

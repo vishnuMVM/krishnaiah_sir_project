@@ -37,7 +37,8 @@
     width:55%;
     border-style: solid;
     border-width: 10px;
-    border-color:steelblue;
+    /* border-color:#fcd413; */
+    border-color:#4E4E4E;
     box-sizing: border-box;
 }
 

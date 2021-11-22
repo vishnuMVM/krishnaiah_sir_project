@@ -3,6 +3,8 @@ import Templetimings from "./Templetimings/templetimings";
 import Events from "./Events/events"
 import "./temple.css"
 import LanguageContext from "../languagecontext.js";
+import LatestUpdatesDiv from "../LatestUpdatesDiv/LatestUpdatesDiv";
+
 
 const eventobject_english=[{
     img:"https://tse4.mm.bing.net/th?id=OIP.hP8CG8FnOYYpsJONDPbH1QHaEd&pid=Api&P=0&w=254&h=154",
@@ -72,6 +74,8 @@ const Temple=()=>{
             <div>
                 <Topsection language={activelanguage}/>
                 <Templetimings language={activelanguage}/>
+                <LatestUpdatesDiv />
+               
 {activelanguage==="English"? <h1 className="temple-header"> Events Held</h1>: <h1 className="temple-header"> నిర్వహించిన  కార్యక్రమాలు</h1>} 
                 
                 <div className="evetns-main-container">
