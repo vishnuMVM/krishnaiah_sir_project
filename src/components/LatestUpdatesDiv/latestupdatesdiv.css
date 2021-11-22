@@ -1,0 +1,85 @@
+.updates-heading{
+    display: flex;
+    flex-direction: column;
+    width:85%;
+    margin: auto;
+    height: fit-content;
+}
+.updates-heading h1{
+    color:#9b1313;
+    text-align: center;
+}
+.updates-div-admin{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:75%;
+    margin:5px auto;
+    height: fit-content;
+}
+
+.updates-div-user{
+    display: flex;
+    justify-content: flex-start;
+    text-align: justify;
+    margin:5px;
+    height: fit-content;
+}
+.updates-text-admin{
+    text-align: justify;
+    padding: 2px;
+    margin:2px 15px;
+    height: fit-content;
+    width:85%;
+}
+.updates-text-user{
+    text-align: justify;
+    margin:2px auto;
+    height: fit-content;
+    width:76.5%;
+}
+.delete-btn{
+    color: #9b1313;
+    width:100px;
+    height:45px;
+    border-radius: 8px;
+    background-color: white;
+    border:1px solid #9b1313;
+    margin-right: 15px;
+   
+}
+.delete-btn:hover{
+    color: white;
+    background-color:#9b1313;
+
+}
+
+
+@media screen and (max-width:767px) {
+    
+    .updates-div-admin{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:flex-start;
+        width:75%;
+        margin:5px auto;
+        height: fit-content;
+    }
+
+    .delete-btn{
+        color: #9b1313;
+        width:90px;
+        height:35px;
+        border-radius: 8px;
+        background-color: white;
+        border:1px solid #9b1313;
+        margin-left: 15px;
+       
+    }
+    .updates-heading h1{
+        font-size: 22px;
+        color:#9b1313;
+        text-align: center;
+    }
+}

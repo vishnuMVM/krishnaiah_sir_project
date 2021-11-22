@@ -73,8 +73,9 @@ const Temple=()=>{
         return(
             <div>
                 <Topsection language={activelanguage}/>
-                <Templetimings language={activelanguage}/>
                 <LatestUpdatesDiv language={activelanguage}/>
+                <Templetimings language={activelanguage}/>
+                
                
 {activelanguage==="English"? <h1 className="temple-header"> Events Held</h1>: <h1 className="temple-header"> నిర్వహించిన  కార్యక్రమాలు</h1>} 
                 

@@ -15,6 +15,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./latestupdatesdiv.css"
 
 export default function LatestUpdatesDiv(props) {
   const { language } = props;
@@ -61,22 +62,30 @@ export default function LatestUpdatesDiv(props) {
   };
 
   return (
-    <div>
+      
+    <div className="updates-heading">
+      <h1 >Latest Updates</h1>
       {updates.map((doc) => {
         return (
-        <div className="updates-div">
-          {language === "English" ? <h5>{doc.eng}</h5> : <h5>{doc.tel}</h5>}
-          {currentUser &&  <button
-            className="logout-btn"
-            onClick={() => {
+          
+        <div className={currentUser?"updates-div-admin":"updates-div-user"}>
+          <div className={currentUser?"updates-text-admin":"updates-text-user"}>
+            {language === "English" ? <h4>{doc.eng}</h4> : <h4>{doc.tel}</h4>}
+          </div>
+
+          <div>
+            {currentUser? <button
+              className="delete-btn"
+              onClick={() => {
               handleDelete(doc.id)
-            }}
-          >
-            <i class="fas fa-trash"></i> delete
-          </button>}
-          ;
-        </div>)
+            }}>
+              <i class="fas fa-trash"></i> delete
+          </button>:null}
+          </div>
+        </div>
+        )
       })}
     </div>
+    
   );
 }
