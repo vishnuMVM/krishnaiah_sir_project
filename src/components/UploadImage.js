@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 const UploadImage = () => {
   const currentUser = useAuth();
   const [file, setFile] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const [info, setinfo] = useState(null);
   var isProgressCompleted = false;
@@ -26,7 +26,7 @@ const UploadImage = () => {
   const handleUpload = async () => {
     if (!file) return;
     // setLoading(true);
-    uploadTask.on(
+   await uploadTask.on(
       "state_changed",
       (snapshot) => {
         let prog = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -44,30 +44,28 @@ const UploadImage = () => {
           // console.log(progress);
           // addDocWithID()
         });
-      },
-      setLoading(false)
-    );
+        setLoading(true)
+        setFile([])
+        setProgress(0)
 
-    toast.success("Your Image is being Uploaded!", {
-      position: "top-right",
-      autoClose: 7000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-    setLoading(!loading);
-    // const refreshPage = setTimeout(() => {
-    //   window.location.reload(false);
-    //   console.log("This will run after 5 second!");
-    // }, 7000);
-    // return () => clearTimeout(refreshPage);
+        toast.success("Your Image is added!", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      },
+      
+    );
   };
 
   const handleChange = async (e) => {
     let selected = e.target.files[0];
-    setFile(e.target.files[0]);
+    await setFile(e.target.files[0]);
+    setLoading(false)
     if (selected && types.includes(selected.type)) {
       setFile(selected);
       setinfo("");
@@ -92,7 +90,6 @@ const UploadImage = () => {
             disabled={loading ? true : false}
             onClick={handleUpload}
           >
-            {" "}
             <i class="fas fa-upload"></i>
             Upload Image
           </button>

@@ -35,7 +35,7 @@ const Modal = ({ setSelectedImg, selectedImg }) => {
 
     toast.error("Image is getting Deleted", {
       position: "top-right",
-      autoClose: 2000,
+      autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -44,8 +44,7 @@ const Modal = ({ setSelectedImg, selectedImg }) => {
     });
     const refreshPage = setTimeout(() => {
       window.location.reload(false);
-      console.log("This will run after 5 second!");
-    }, 1000);
+    }, 3000);
     return () => clearTimeout(refreshPage);
   };
 

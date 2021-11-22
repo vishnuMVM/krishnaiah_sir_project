@@ -52,3 +52,15 @@
   background: #e83a3a;
   text-decoration: none;
 }
+
+ /* ****** Responsive Styles for Modal ****** */
+
+ @media only screen and (max-width: 600px) {
+  .logout-btn ,.btn, .far,.fas {
+    font-size: 12px;
+    padding: 5px 10px 5px 10px;
+  }
+  /* .far,.fas {
+    font-size: 12px;
+  } */
+}

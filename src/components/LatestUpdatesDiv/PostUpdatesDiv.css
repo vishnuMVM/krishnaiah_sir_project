@@ -1,0 +1,32 @@
+.updates {
+  display: grid;
+  align-items: center;
+  grid-template-rows: 1fr 1fr 1fr;
+  padding: 50px;
+  gap: 20px;
+}
+.center {
+  margin: 0 auto;
+}
+.inputField {
+  padding: 10px 15px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.btn {
+  -webkit-border-radius: 15;
+  -moz-border-radius: 15;
+  border-radius: 15px;
+  font-family: Arial;
+  color: #000000;
+  font-size: 16px;
+  background: #fcd413;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #ffeb85;
+  text-decoration: none;
+}

@@ -91,16 +91,6 @@ export default function AdminLogin() { const [loading, setLoading] = useState(fa
         </div>
       </div>
 
-      {/* <button disabled={loading || currentUser} onClick={handleSignup}>
-          Sign Up
-        </button> */}
-      {/* <button disabled={loading || currentUser} onClick={handleLogin}>
-        Log In
-      </button>
-      <button disabled={loading || !currentUser} onClick={handleLogout}>
-        Log Out
-      </button> */}
-
       <div style = {{ position:"relative", float:"right", marginLeft: "auto" , marginRight: 0,padding:"20px"}}>
         {currentUser && (
           <Link to="/update-gallery">

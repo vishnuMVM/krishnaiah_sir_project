@@ -1,55 +1,86 @@
 import React, { useEffect, useState } from "react";
-import { collection, getDocs, getFirestore,deleteDoc,doc } from "firebase/firestore";
-import { db } from "../firebase/config";
-import { v4 as uuid } from "uuid";
+import {
+  collection,
+  getDocs,
+query,
+orderBy,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
+import { db, timestamp } from "../firebase/config";
+import { Link } from "react-router-dom";
 import YoutubeEmbed from "./YoutubeEmbed";
-import {  useAuth } from "../firebase/config";
+import { useAuth } from "../firebase/config";
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Videos() {
   const URLCollectionRef = collection(db, "AllVideoURLs");
   const [videoData, setVideoData] = useState([]);
   const currentUser = useAuth();
-
+  var [loading,setLoading] =useState(true)
 
   useEffect(() => {
+    const q = query(URLCollectionRef,orderBy("createdAt","desc"))
     const getURLs = async () => {
-      const data = await getDocs(URLCollectionRef);
+      const data = await getDocs(q);
       setVideoData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setLoading(false)
     };
     getURLs();
   }, []);
 
- 
+  const handleDeleteVideo = async (id) => {
+    const videoRef = doc(db, "AllVideoURLs", id);
+    await deleteDoc(videoRef)
+   
 
-
-const handleDeleteVideo=async(id) => {
-  
-  const videoRef = doc(db, "AllVideoURLs", id);
-  await deleteDoc(videoRef)
-  //  deleteDoc(doc(db, "All Video URLs", id)).then(
-  //    
-  //  )
-  console.log(id)
-
-  const refreshPage = setTimeout(() => {
+    toast.error("Your Video is deleted!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
     window.location.reload(false);
-      console.log('This will run after 5 second!')
-    }, 1000);
-    return () => clearTimeout(refreshPage);
+ 
+  };
 
-}
-
-
-  return (
-    <div className="img-grid">
-      {videoData.map((videoDoc) => {
-        return <div key={videoDoc.id}>
-          <YoutubeEmbed embedId={videoDoc.url}/>
-          <h4 > {videoDoc.videoName}</h4>;
-          {currentUser && <button onClick = {()=>{handleDeleteVideo(videoDoc.id)}}>Delete this Video </button>}
-        </div>
-      })}
+  return (<>
+  <div style = {{padding:"20px"}}>
+    <Link to= "/update-gallery">
+       <button className = "btn" ><i class="fas fa-arrow-left"></i> Update Videos </button>
+    </Link>
     </div>
-  );
+
+    {loading?(<div className="spinner-location"> <Loader  type="TailSpin" color="#00Bfff" height={50} width={50} /> </div> ):
+    <div className="videos-div">
+      {videoData.map((videoDoc) => {
+        return (
+          <div className="video-grid" key={videoDoc.id}>
+
+            <YoutubeEmbed embedId={videoDoc.url} />
+
+            <h4> {videoDoc.videoName}</h4>;
+
+            {currentUser && (
+              <button className="logout-btn"
+                onClick={() => {
+                  handleDeleteVideo(videoDoc.id);
+                }}
+              >
+                <i class="fas fa-trash"></i>  Delete this Video 
+              </button>
+            )}
+          </div>
+        );
+      })}
+    </div>}
+    <ToastContainer />
+ </> );
 }
