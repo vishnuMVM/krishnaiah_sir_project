@@ -6,11 +6,11 @@
     height:400px;
     width:100vw;
     margin: 30px 0;
-
+  
 }
 
 .temple-timing-bg-container{
-    background-color:#f8f0bc;
+    background-color:#fdf7e1;
     display: flex;
     width:70%;
     justify-content:space-around;
@@ -19,7 +19,6 @@
     height: 100%;
     padding: 15px 0;
     border-radius: 15px;
-
     
 }
 
@@ -50,7 +49,7 @@
 @media screen and (min-width:720px) and (max-width:1200px){
 
     .temple-timing-bg-container{
-        background-color:#f8f0bc;
+        background-color:#fdf7e1;
         display: flex;
         width:75%;
         justify-content:space-around;
@@ -89,12 +88,13 @@
         height:fit-content;
         width:100vw;
         margin: 30px 0;
+       
     
     }
 
 
     .temple-timing-bg-container{
-        background-color:#f8f0bc;
+        background-color:#fdf7e1;
         display: flex;
         flex-direction: column;
         width:75%;
@@ -134,7 +134,7 @@
 font-size: 3vw;
     }
     .timings-main-container p{
-        font-size:2.2vw ;
+        font-size:2.4vw ;
     }
     
 }

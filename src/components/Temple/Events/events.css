@@ -18,3 +18,14 @@
     border-radius: 10px;
     box-sizing: border-box;
 }
+
+@media screen and (max-width:767px) {
+    .each-event-container{
+        background-color: #fdf7e1;
+        padding:20px;
+        height:300px;
+        width:300px;
+        margin:10px;
+      
+    }
+}

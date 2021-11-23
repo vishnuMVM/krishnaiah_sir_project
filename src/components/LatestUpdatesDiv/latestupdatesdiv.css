@@ -1,14 +1,36 @@
 .updates-heading{
     display: flex;
     flex-direction: column;
-    width:85%;
+    width:80%;
     margin: auto;
     height: fit-content;
+    
 }
 .updates-heading h1{
-    color:#9b1313;
-    text-align: center;
+text-align: center;
+    animation-name:updates-heading-text ;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+   
 }
+
+@keyframes updates-heading-text  {
+    from{
+        color:#9b1313;
+        border:2px solid #9b1313;
+        text-align: center;
+    padding:5px;
+background-color: white;}
+        to{
+            color:white;
+            border:2px solid #fdf7e1;
+            text-align: center;
+            padding:5px;
+            background-color: #9b1313;
+        }
+    
+} 
+
 .updates-div-admin{
     display: flex;
     justify-content: space-between;
@@ -16,6 +38,7 @@
     width:75%;
     margin:5px auto;
     height: fit-content;
+    
 }
 
 .updates-div-user{

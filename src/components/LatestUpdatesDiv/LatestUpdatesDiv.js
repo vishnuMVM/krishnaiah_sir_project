@@ -63,15 +63,15 @@ export default function LatestUpdatesDiv(props) {
 
   return (
       
-    <div className="updates-heading">
-      <h1 >Latest Updates</h1>
+    <ul className="updates-heading">
+      {updates.length>0?<h1 >Latest Updates</h1>:null}
       {updates.map((doc) => {
         return (
           
         <div className={currentUser?"updates-div-admin":"updates-div-user"}>
-          <div className={currentUser?"updates-text-admin":"updates-text-user"}>
+          <li className={currentUser?"updates-text-admin":"updates-text-user"}>
             {language === "English" ? <h4>{doc.eng}</h4> : <h4>{doc.tel}</h4>}
-          </div>
+          </li>
 
           <div>
             {currentUser? <button
@@ -85,7 +85,7 @@ export default function LatestUpdatesDiv(props) {
         </div>
         )
       })}
-    </div>
+    </ul>
     
   );
 }
