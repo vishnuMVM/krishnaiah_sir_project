@@ -92,7 +92,7 @@ inputRef.current.value=""
           ></input>
         </div>
         <div className="fields">
-          <button className="btn" disabled={isBtnDisabled ? true : false} type="submit" onClick={handleSubmit}>
+          <button className="yellow-btn" disabled={isBtnDisabled ? true : false} type="submit" onClick={handleSubmit}>
             Update Link Here
           </button>
         </div>

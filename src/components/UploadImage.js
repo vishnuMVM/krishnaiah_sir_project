@@ -86,7 +86,7 @@ const UploadImage = () => {
 
         <div className="upload-image-div">
           <button
-            className="btn"
+            className="yellow-btn"
             disabled={loading ? true : false}
             onClick={handleUpload}
           >
