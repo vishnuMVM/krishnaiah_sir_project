@@ -1,6 +1,7 @@
 import "./events.css";
 
 
+
 const Events=(props)=>{
     let {event}=props;
     let {img,eventname,eventdes}=event;

@@ -77,6 +77,16 @@
 
 
 @media screen and (max-width:767px) {
+
+    
+.footer-main-contianer h3{
+    font-size:15px;
+}
+
+    
+.footer-main-contianer h4{
+    font-size:12px;
+}
     .footer-row-container{
         margin:20px 0px;
         padding:15px 0;
