@@ -79,7 +79,7 @@ export default function ImageGrid({ setSelectedImg }) {
      {/* style={{padding:"20px"}} */}
     {currentUser && <div >
     <Link to= "/update-gallery">
-       <button className = "btn"><i class="fas fa-arrow-left"></i> Update Gallery </button>
+       <button className = "yellow-btn"><i class="fas fa-arrow-left"></i> Update Gallery </button>
     </Link>
     </div>}
     {/* float:"right", */}

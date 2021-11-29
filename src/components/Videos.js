@@ -54,7 +54,7 @@ export default function Videos() {
   return (<>
   {currentUser &&  <div style = {{padding:"20px"}}>
     <Link to= "/update-gallery">
-       <button className = "btn" ><i class="fas fa-arrow-left"></i> Update Videos </button>
+       <button className = "yellow-btn" ><i class="fas fa-arrow-left"></i> Update Videos </button>
     </Link>
     </div> }
 

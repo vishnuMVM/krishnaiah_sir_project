@@ -21,6 +21,7 @@ export default function LatestUpdatesDiv(props) {
   const { language } = props;
   const [updates, setUpdates] = useState([]);
   const currentUser = useAuth();
+  var [loading,setLoading] =useState(true)
 
   useEffect(() => {
     // const LatestUpdatesRef = collection(db, "LatestUpdates");
@@ -39,6 +40,7 @@ export default function LatestUpdatesDiv(props) {
           docs.push({ ...doc.data().update, id: doc.id });
         });
         setUpdates(docs);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err.message);
@@ -62,7 +64,8 @@ export default function LatestUpdatesDiv(props) {
   };
 
   return (
-      
+    <>
+    {loading?(<div className="spinner-location"> <Loader  type="TailSpin" color="#00Bfff" height={50} width={50} /> </div> ):
     <ul className="updates-heading">
       {updates.length>0?<h1 >Latest Updates</h1>:null}
       {updates.map((doc) => {
@@ -85,7 +88,7 @@ export default function LatestUpdatesDiv(props) {
         </div>
         )
       })}
-    </ul>
-    
+    </ul>}
+    </>
   );
 }
