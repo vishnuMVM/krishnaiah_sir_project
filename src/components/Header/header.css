@@ -168,6 +168,7 @@ align-items: center;
         background-color:#fcd413;
         transition:800ms ease-in-out;
         opacity: 0.6;
+        z-index: 1;
         
     }
     .sidebar-container{

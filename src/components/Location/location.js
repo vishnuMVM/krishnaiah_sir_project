@@ -53,12 +53,12 @@ return(
         
                                 <table>
                                     <tr>
-                                        <td><h2>{activelanguage==="English"?"Email:":"ఇమెయిల్ ఐడి:"}</h2></td>
+                                        <td><h2>{activelanguage==="English"?"Email:":"ఈమెయిల్ ఐడి:"}</h2></td>
                                         <td><p>darsikrishna10000@gmail.com</p></td>
                                     </tr>
         
                                     <tr>
-                                        <td><h2>{activelanguage==="English"?"Phone:":"ఫోను నంబరు:"}</h2></td>
+                                        <td><h2>{activelanguage==="English"?"Phone:":"ఫొన్ నంబరు:"}</h2></td>
                                         <td><p>9866496375</p></td>
                                     </tr>
         

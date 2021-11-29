@@ -61,7 +61,7 @@
         
     }
     .timings-img{
-        height:43vh;
+        height:80%;
         width:40vw;
         box-sizing: border-box;
         border-radius: 10px;
@@ -72,7 +72,7 @@
         border-radius:10px;
         padding: 15px;
         width:28vw;
-        height: 43vh;
+        height: 80%;
         box-sizing: border-box;
     
     }

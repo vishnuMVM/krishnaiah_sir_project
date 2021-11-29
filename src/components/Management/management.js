@@ -86,7 +86,7 @@ return(
 
                     <div className="management-individual-text-container">
                         <h2>{activelanguage==="English"?"A.MuduKrishnaiah":"ఎ.ముద్దుకృష్ణయ్య"}</h2>
-                        <p>{activelanguage==="English"?"Trustee":"ధర్మకర్త"}</p>
+                        <p>{activelanguage==="English"?"Trustee":"ఆలయ ధర్మకర్త"}</p>
                         <h3>9849835844</h3>
                     </div>
                 </div>
@@ -112,7 +112,7 @@ return(
 
                     <div className="management-individual-text-container">
                         <h2>{activelanguage==="English"?"A.Chengaiah":"ఎ.చెంగయ్య"}</h2>
-                        <p>{activelanguage==="English"?"Priest":"పూజారి"}</p>
+                        <p>{activelanguage==="English"?"Priest":"ఆలయ అర్చకులు"}</p>
                         <h3>7207420472</h3>
                     </div>
                 </div>
