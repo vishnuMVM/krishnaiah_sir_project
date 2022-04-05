@@ -62,6 +62,8 @@ return(
                              <li><Link className="header-list-item" to="/gallery">{activelanguage==="English"?"Gallery":"గ్యాలరీ"}</Link></li>
                              <li><Link className="header-list-item" to="/management">{activelanguage==="English"?"Management":"నిర్వహణ"}</Link></li>
                              <li><Link className="header-list-item" to="/location">{activelanguage==="English"?"Location":"స్థానం"}</Link></li>
+                             <li><Link className="header-list-item" to="/calender">{activelanguage==="English"?"Calender":"పంచాంగం"}</Link></li>
+
                          </ul>
                      </div>
                  </div>
@@ -78,6 +80,8 @@ return(
                             <p> <Link className="header-list-item" to="/gallery">{activelanguage==="English"?"gallery":"గ్యాలరీ"}</Link></p>
                             <p><Link className="header-list-item" to="/management">{activelanguage==="English"?"Management":"నిర్వహణ"}</Link></p>
                             <p> <Link className="header-list-item" to="/location">{activelanguage==="English"?"Location":"స్థానం"}</Link></p>
+                            <li><Link className="header-list-item" to="/calender">{activelanguage==="English"?"Calender":"పంచాంగం"}</Link></li>
+
                      </div>
                  </div>
          

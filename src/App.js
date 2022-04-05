@@ -13,6 +13,7 @@ import UpdateImagesAndVideos from './components/UpdateImagesAndVideos';
 import Videos from './components/Videos';
 import PostUpdatesDiv from './components/LatestUpdatesDiv/PostUpdatesDiv';
 import LatestUpdatesDiv from './components/LatestUpdatesDiv/LatestUpdatesDiv';
+import Calender from './components/Calender/Calender';
 
 
 
@@ -46,6 +47,8 @@ changelanguage=(activelanguage)=>{
     <Route exact path="/management" element={<Management />} />
     <Route exact path="/update-gallery" element={<UpdateImagesAndVideos />} />
     <Route exact path="/videos" element={<Videos />} />
+    <Route exact path="/calender" element={<Calender />} />
+
     
   </Routes>
   <Footer />
